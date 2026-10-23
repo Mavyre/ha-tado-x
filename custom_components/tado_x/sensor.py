@@ -274,7 +274,9 @@ HOME_SENSORS: tuple[TadoXHomeSensorEntityDescription, ...] = (
         key="adjusted_flow_temperature",
         translation_key="adjusted_flow_temperature",
         icon="mdi:thermometer-water",
-        device_class=SensorStateClass.MEASUREMENT,
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        device_class=SensorDeviceClass.TEMPERATURE,
+        state_class=SensorStateClass.MEASUREMENT,
         value_fn=_get_adjusted_flow_temperature,
     ),
 )
