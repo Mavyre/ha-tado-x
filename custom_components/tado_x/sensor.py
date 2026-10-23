@@ -197,6 +197,10 @@ def _get_presence_state(data: TadoXData) -> str | None:
     """Get the current presence state (HOME/AWAY)."""
     return data.presence
 
+def _get_adjusted_flow_temperature(data: TadoXData) -> str | None:
+    """Get the current automatically adjusted flow temperature."""
+    return data.flow_temp_auto_value
+
 
 def _get_presence_mode(data: TadoXData) -> str:
     """Get the presence mode - MANUAL (locked) or AUTO (geofencing)."""
@@ -265,6 +269,13 @@ HOME_SENSORS: tuple[TadoXHomeSensorEntityDescription, ...] = (
         device_class=SensorDeviceClass.ENUM,
         options=["AUTO", "MANUAL"],
         value_fn=_get_presence_mode,
+    ),
+    TadoXHomeSensorEntityDescription(
+        key="adjusted_flow_temperature",
+        translation_key="adjusted_flow_temperature",
+        icon="mdi:thermometer-water",
+        device_class=SensorStateClass.MEASUREMENT,
+        value_fn=_get_adjusted_flow_temperature,
     ),
 )
 
