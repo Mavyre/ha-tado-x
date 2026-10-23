@@ -195,6 +195,9 @@
           "AUTO": "Auto (Geofencing)"
         }
       },
+      "adjusted_flow_temperature": {
+        "name": "Adjusted maximum flow temperature"
+      },
       "outdoor_temperature": {
         "name": "Outdoor Temperature"
       },
